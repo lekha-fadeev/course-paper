@@ -1,73 +1,64 @@
 public class Main {
-  //  public static int getSum(int[] inputArra) {
-    //    float summ = 0;
-    //    for (int j = 0; j < inputArra.length; j++) {
-   //         summ = summ + inputArra[j];
-   //     }
-    //    return summ;
-   // }
- //   public static int getForAvg(int[] input) {
-   //     int sumForAvg = 0;
-    //    for (int i : input) {
-  //          sumForAvg += i;
-     //   }
-     //   int days = input.length;
-     //   double avgg = (double) sumForAvg / days;
+    public static void main(String[] args) {
+        Employee[] empl = new Employee[10];
+        empl[0] = new Employee("Иванов Сидор Александрович", 1, 27000);
+        empl[1] = new Employee("Сидоров Александр Иванович", 1, 35000);
+        empl[2] = new Employee("Александров Иван Сидорович", 2, 40000);
+        empl[3] = new Employee("Назарова Ульяна Александровна", 2, 25000);
+        empl[4] = new Employee("Зотова Вероника Давидовна", 3, 13000);
+        empl[5] = new Employee("Федоров Даниил Артёмович", 3, 44000);
+        empl[6] = new Employee("Крылов Ярослав Львович", 4, 50000);
+        empl[7] = new Employee("Громова Евгения Матвеевна", 4, 75000);
+        empl[8] = new Employee("Андреев Михаил Борисович", 5, 110000);
+        empl[9] = new Employee("Мельникова Василиса Кирилловна", 5, 15000);
+        System.out.println();
 
-      //  return avgg;
-    //}
-    //public static int getMax(int[] inputArray){
-     //   int maxValue = inputArray[0];
-     //   for(int i = 1; i < inputArray.length; i++){
-      //      if(inputArray[i] > maxValue) {
-       //         maxValue = inputArray[i];
-       //     }
-       // }
-       // return maxValue;
-    //}
-   // public static int getMin(int[] inputArray){
-     //   int minValue = inputArray[0];
-     //   for(int i = 1; i < inputArray.length; i++){
-      //      if(inputArray[i] < minValue){
-       //         minValue = inputArray[i];
-    //       }
-     //   }
-      //  return minValue;
-   // }
-
-    public static int getMinSalary(Employee[] employees) {
-        float min = employees[0].getSalary();
+        toStrin(empl);
+        System.out.println();
+        getMinSalary(empl);
+        getMaxSalary(empl);
+        System.out.println();
+        getAvgSalary(empl);
+        System.out.println();
+        getFIO(empl);
+    }
+    public static int getSumSalary(Employee[] employees) {
+        int sum = 0;
+        for (Employee a : employees) {
+             sum += a.getSalary();
+       }
+        System.out.println("Cумма затрат на зарплаты в месяц: " + sum + " руб");
+        return sum;
+    }
+    public static void getAvgSalary(Employee[] employees) {
+        System.out.println("Cреднее значение зарплат: " + getSumSalary(employees)/employees.length + " руб");
+    }
+    public static void getMaxSalary(Employee[] employees) {
+        int max = employees[0].getSalary();
+        for (Employee e : employees) {
+            if (e.getSalary() > max) {
+                max = e.getSalary();
+            }
+        }
+        System.out.println("Максимальная зарплата сотрудника: " +  max +" руб");
+    }
+    public static void toStrin(Employee[] employees) {
+        for (Employee e : employees) {
+            System.out.println(e.toString());
+        }
+}
+    public static void getMinSalary(Employee[] employees) {
+        int min = employees[0].getSalary();
         for (Employee e : employees) {
             if (e.getSalary() < min) {
                 min = e.getSalary();
             }
         }
-        return min;
+        System.out.println("Минимальная зарплата сотрудника: " + min +" руб");
     }
-    public static void main(String[] args) {
-        Employee[] empl = new Employee[3];
-        empl[0] = new Employee("Иванов Сидор Александрович", 1, 27000f);
-        empl[1] = new Employee("Сидоров Александр Иванович", 2, 35000f);
-        empl[2] = new Employee("Александров Иван Сидорович", 3, 40000f);
-
-        for (Employee e : empl) {
-            System.out.println(e);
+    public static void getFIO(Employee[] employees) {
+        for (Employee e : employees) {
+            System.out.println(e.getFIO());
         }
-
-        float min = getMinSalary(empl);
-        System.out.println("Минимальная сумма трат за день составила " + min + " рублей");
-
-     //   int sum = getSum(empl.getSalary());
-      ///  System.out.println("Сумма трат за месяц составила " + sum + " рублей");
-
-      //  int max = getMax(empl.getSalary());
-      //  System.out.println("Максимальная сумма трат за день составила " + max + " рублей");
-
-      //  int min = getMin(empl.getSalary());
-      //  System.out.println("Минимальная сумма трат за день составила " + min + " рублей");
-
-      //  int avg = getForAvg(empl.getSalary());
-      //  System.out.println("Минимальная сумма трат за день составила " + avg + " рублей");
     }
-
 }

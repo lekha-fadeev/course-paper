@@ -2,7 +2,7 @@ public class Employee {
     // private field's
     private String FIO;
     private int Department;
-    private float Salary;
+    private int Salary;
     private static int Counter;
     private int Id;
 
@@ -19,7 +19,7 @@ public class Employee {
         return this.Department;
     }
 
-    public float getSalary() {
+    public int getSalary() {
         return this.Salary;
     }
 
@@ -32,12 +32,12 @@ public class Employee {
         this.Department = dept;
     }
 
-    public void SetSalary(float sal) {
+    public void SetSalary(int sal) {
         this.Salary = sal;
     }
 
     // Constructor
-    public Employee(String fio, int dept, float salary) {
+    public Employee(String fio, int dept, int salary) {
         FIO = fio;
         Department = dept;
         Salary = salary;
